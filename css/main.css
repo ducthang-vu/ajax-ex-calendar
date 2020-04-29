@@ -40,9 +40,13 @@ li {
 
 
 /* APP */
+.btn-box {
+    width: 50px;
+}
+
 .btn {
     height: 100%;
-    width: 50px;
+    width: 100%;
 }
 
 .month-list {
