@@ -33,7 +33,7 @@ function printDays(template, date) {
         });
 
         var context = {
-            class: 'day',
+            class: thisDate.format('dddd').toLowerCase(),
             day: thisDate.date(),
             completeDate: thisDate.format('YYYY-MM-DD')
         };
