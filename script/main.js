@@ -3,7 +3,7 @@ $(document).ready(function () {
     var source = $('#day-template').html();
     var template = Handlebars.compile(source);
 
-    // On page load, print january 2018
+    // On page load, print January 2018
     var baseMonth  = moment('2018-01-01');
     printMonth(template, baseMonth);
 
@@ -37,7 +37,7 @@ function printDays(template, date) {
             day: thisDate.date(),
             completeDate: thisDate.format('YYYY-MM-DD')
         };
-        
+
         var html = template(context);
         $('.month-list').append(html);
     }
@@ -57,18 +57,15 @@ function printHoliday(date) {
         success: function(res) {
             for (var i = 0; i < res.response.length; i++) {
                 var thisHoliday = res.response[i];
-
                 var listItem = $('li[data-complete-date="' + thisHoliday.date + '"]');
 
-                if(listItem) {
+                if (listItem) {
                     listItem.addClass('holiday');
                     listItem.text( listItem.text() + ' - ' + thisHoliday.name );
                 }
             }
         },
-        error: function() {
-            console.log('Errore chiamata festivitÃ '); 
-        }
+        error: () => console.log('Ajax error') 
     });
 }
 
