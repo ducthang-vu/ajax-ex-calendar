@@ -1,24 +1,21 @@
 $(document).ready(function () {
-    var baseMonth  = moment('2018-01-01')
-
-    // Init Hndlenars
+    // Init Handlebars
     var source = $('#day-template').html();
     var template = Handlebars.compile(source);
 
-    printMonth(template, baseMonth)
+    // On page load, print january 2018
+    var baseMonth  = moment('2018-01-01');
+    printMonth(template, baseMonth);
 
+    // Activating buttons
     $('#prev-btn').click(() => printMonth(template, baseMonth.subtract(1, 'months')));
-
     $('#next-btn').click(() => printMonth(template, baseMonth.add(1, 'months')));
-
 }); 
 
 
 /*************************************
     FUNCTIONS
  *************************************/
-
-// Stampa a schermo i giorni del mese
 function printDays(template, date) {
     $('.month-list').children().remove();
 
@@ -28,29 +25,25 @@ function printDays(template, date) {
     // Imposta data attribute data visualizzata
     $('.month').attr('data-this-date',  date.format('YYYY-MM-DD'));
 
-    // genera giorni mese
     for (var i = 0; i < date.daysInMonth(); i++) {
-        // genera data con moment js
         var thisDate = moment({
             year: date.year(),
             month: date.month(),
             day: i + 1
         });
 
-        // imposta dati template
         var context = {
             class: 'day',
             day: thisDate.date(),
             completeDate: thisDate.format('YYYY-MM-DD')
         };
-
-        //compilare e aggiungere template
+        
         var html = template(context);
         $('.month-list').append(html);
     }
 }
 
-// Ottieni e stampa festivitÃ 
+
 function printHoliday(date) {
     // chiamo API
     $.ajax({
