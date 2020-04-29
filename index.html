@@ -9,16 +9,28 @@
 </head>
 <body>
 
-    <div class="container">
-        <h1 class="month"></h1>
+    <main class="in-flex">
+        <div>
+            <button id="prev-btn">Previous</button>
+        </div>
 
-        <ul class="month-list"></ul>
-    </div>
+        <div class="container">
+            <h1 class="month"></h1>
+
+            <ul class="month-list grid"></ul>
+        </div>
+
+        <div>
+            <button id="next-btn">Next</button>
+        </div>
+
+    </main>
+    
 
 
     <!-- TEMPLATES HANDLEBARS -->
     <script id="day-template" type="text/x-handlebars-template">
-        <li class="{{ class }}" data-complete-date="{{ completeDate }}">
+        <li class="box flex {{ class }}" data-complete-date="{{ completeDate }}">
             {{ day }}
         </li>
     </script>

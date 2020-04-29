@@ -1,23 +1,17 @@
 $(document).ready(function () {
-    
-    /**
-     * SETUP
-     */
-
-    // Punto di partenza
-    var baseMonth = moment('2018-01-01'); 
+    var baseMonth  = moment('2018-01-01')
 
     // Init Hndlenars
     var source = $('#day-template').html();
     var template = Handlebars.compile(source);
 
-    // print giorno
-    printMonth(template, baseMonth);
+    printMonth(template, baseMonth)
 
-    // ottieni festivitÃ  mese corrente
-    printHoliday(baseMonth);
+    $('#prev-btn').click(() => printMonth(template, baseMonth.subtract(1, 'months')));
 
-}); // <-- End doc ready
+    $('#next-btn').click(() => printMonth(template, baseMonth.add(1, 'months')));
+
+}); 
 
 
 /*************************************
@@ -25,9 +19,8 @@ $(document).ready(function () {
  *************************************/
 
 // Stampa a schermo i giorni del mese
-function printMonth(template, date) {
-    // numero giorni nel mese
-    var daysInMonth = date.daysInMonth();
+function printDays(template, date) {
+    $('.month-list').children().remove();
 
     //  setta header
     $('h1').html( date.format('MMMM YYYY') );
@@ -36,7 +29,7 @@ function printMonth(template, date) {
     $('.month').attr('data-this-date',  date.format('YYYY-MM-DD'));
 
     // genera giorni mese
-    for (var i = 0; i < daysInMonth; i++) {
+    for (var i = 0; i < date.daysInMonth(); i++) {
         // genera data con moment js
         var thisDate = moment({
             year: date.year(),
@@ -47,7 +40,7 @@ function printMonth(template, date) {
         // imposta dati template
         var context = {
             class: 'day',
-            day: thisDate.format('DD MMMM'),
+            day: thisDate.date(),
             completeDate: thisDate.format('YYYY-MM-DD')
         };
 
@@ -67,11 +60,10 @@ function printHoliday(date) {
             year: date.year(),
             month: date.month()
         },
-        success: function(res) {
-            var holidays = res.response;
 
-            for (var i = 0; i < holidays.length; i++) {
-                var thisHoliday = holidays[i];
+        success: function(res) {
+            for (var i = 0; i < res.response.length; i++) {
+                var thisHoliday = res.response[i];
 
                 var listItem = $('li[data-complete-date="' + thisHoliday.date + '"]');
 
@@ -85,4 +77,17 @@ function printHoliday(date) {
             console.log('Errore chiamata festivitÃ '); 
         }
     });
+}
+
+
+function removeButtons(month) {
+    $('#prev-btn, #next-btn').show();
+    if (month === 0) $('#prev-btn').hide();
+    else if (month === 11) $('#next-btn').hide();
+}
+
+function printMonth(template, date) {
+    printDays(template, date);
+    removeButtons(date.month());
+    printHoliday(date);
 }
