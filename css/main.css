@@ -6,8 +6,10 @@
 }
 
 body {
+    padding: 25px;
     font-family: sans-serif;
     text-align: center;
+    background-color: #000;
 }
 
 li {
@@ -40,31 +42,48 @@ li {
 
 
 /* APP */
-.btn-box {
-    width: 50px;
+.month {
+    padding: 10px;
+    background: #04BF8A;
+    color: #fff;
 }
 
-.btn {
+.btn-box {
+    width: 70px;
+    background: #18298C;
+}
+
+.btn,
+.btn:focus {
+    outline: 0;
     height: 100%;
     width: 100%;
+    font-size: 300%;
+    border: 0;
+    cursor: pointer;
+    background: inherit;
+    color: #fff
 }
 
 .month-list {
-    width: 631px;
+    width: 705px;
     grid-template-columns: repeat(7, 1fr);
     border-left: 1px solid #000;
     border-top: 1px solid #000;
 }
 
 .box {
-    flex-basis: 90px;
     height: 90px;
     border-bottom: 1px solid #000;
     border-right: 1px solid #000;
     justify-content: center;
     align-items: center;
+    font-weight: 600;
+    background-color: #F2CF1D;
+    color: #000;
 }
 
 .box.holiday {
-    color: red;
+    background: #F27781;
+    color: #fff;
 }

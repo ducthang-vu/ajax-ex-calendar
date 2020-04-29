@@ -61,7 +61,7 @@ function printHoliday(date) {
 
                 if (listItem) {
                     listItem.addClass('holiday');
-                    listItem.text( listItem.text() + ' - ' + thisHoliday.name );
+                    listItem.html( listItem.text() + '<br>' + thisHoliday.name );
                 }
             }
         },
@@ -75,6 +75,7 @@ function removeButtons(month) {
     if (month === 0) $('#prev-btn').hide();
     else if (month === 11) $('#next-btn').hide();
 }
+
 
 function printMonth(template, date) {
     printDays(template, date);
