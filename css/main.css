@@ -9,7 +9,8 @@ body {
     padding: 25px;
     font-family: sans-serif;
     text-align: center;
-    background-color: #000;
+    background-color: #fff;
+    user-select: none;
 }
 
 li {
