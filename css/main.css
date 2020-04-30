@@ -44,78 +44,83 @@ li {
 
 
 /* APP */
-.month {
-    padding: 10px;
-    background: #04BF8A;
-    color: #fff;
+main {
+    border-radius: 15px;
+    overflow: hidden;
 }
 
-.btn-box {
-    width: 70px;
-    background: #18298C;
-}
-
-    .btn,
-    .btn:focus {
-        outline: 0;
-        height: 100%;
-        width: 100%;
-        font-size: 300%;
-        border: 0;
-        cursor: pointer;
-        background: inherit;
-        color: #fff
-    }
-
-    .btn:hover {
-        opacity: 0.8;
-    }
-
-.month-list {
-    width: 705px;
-    grid-template-columns: repeat(7, 1fr);
-}
-
-    .box {
-        height: 80px;
-        justify-content: center;
-        align-items: center;
-        font-weight: 600;
-        background-color: #F2CF1D;
-        color: #000;
-    }
-
-    .box:hover {
-        opacity: 0.8;
-    }
-
-    .box.holiday,
-    .box.sunday {
-        grid-column: 1 / 2;
-        background: #F27781;
+    .month {
+        padding: 10px;
+        background: #04BF8A;
         color: #fff;
     }
 
-    .box.monday {
-        grid-column: 2 / 3;
+    .btn-box {
+        width: 70px;
+        background: #18298C;
     }
 
-    .box.tuesday {
-        grid-column: 3 / 4;
+        .btn,
+        .btn:focus {
+            outline: 0;
+            height: 100%;
+            width: 100%;
+            font-size: 300%;
+            border: 0;
+            cursor: pointer;
+            background: inherit;
+            color: #fff
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+    .month-list {
+        width: 705px;
+        grid-template-columns: repeat(7, 1fr);
     }
 
-    .box.wednesday {
-        grid-column: 4 / 5;
-    }
+        .box {
+            height: 80px;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+            background-color: #F2CF1D;
+            color: #000;
+        }
 
-    .box.thursday {
-        grid-column: 5 / 6;
-    }
+        .box:hover {
+            opacity: 0.8;
+        }
 
-    .box.friday {
-        grid-column: 6 / 7;
-    }
+        .box.holiday,
+        .box.sunday {
+            grid-column: 1 / 2;
+            background: #F27781;
+            color: #fff;
+        }
 
-    .box.saturday {
-        grid-column: 7 / 8;
-    }
+        .box.monday {
+            grid-column: 2 / 3;
+        }
+
+        .box.tuesday {
+            grid-column: 3 / 4;
+        }
+
+        .box.wednesday {
+            grid-column: 4 / 5;
+        }
+
+        .box.thursday {
+            grid-column: 5 / 6;
+        }
+
+        .box.friday {
+            grid-column: 6 / 7;
+        }
+
+        .box.saturday {
+            grid-column: 7 / 8;
+        }
